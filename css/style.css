@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merienda+One&display=swap');
+
+.container {
+    background: lightslategray;
+    padding: 40px;
+    margin: 40px;
+    border-radius: 2%;
+}
+
+.contenedorFormulario {
+    background: lightgoldenrodyellow;
+    padding: 20px;
+    border-radius: 4px;
+    margin-top: -25px;
+    text-align: center;
+}
+
+.form-control {
+    margin-right: 2px;
+}
+
+
+.container section article {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 3px;
+    font-family: 'Merienda One', cursive;
+}
+
+.contenedorFormulario button {
+    margin-top: 10px;
+    width: 100%;
+    height: 50px;
+}
+
+button i {
+    font-size: 20px;
+}
+
+.filtros {
+    display: flex;
+    padding: 20px;
+    justify-content: flex-end;
+    background: lightgoldenrodyellow;
+    border-radius: 4px;
+    margin-top: 6px;
+}
+
+.filtros label {
+    margin-right: 10px;
+}
+
+.diaria {
+    background-color: lightgreen;
+}
+
+.mensual {
+    background-color: lightblue;
+}
+
+.urgente {
+    background-color: lightcoral;
+}
+
+footer {
+    background: lightgoldenrodyellow;
+    padding: 20px;
+    border-radius: 4px;
+    margin-bottom: -25px;
+    text-align: right;
+    font-family: 'Merienda One', cursive;
+    font-size: 25px;
+}
+
+@media (min-width: 48em) {
+    .contenedorFormulario {
+        display: flex;
+
+    }
+
+    .contenedorFormulario button {
+        margin-top: 0px;
+        width: 15%;
+    }
+}
