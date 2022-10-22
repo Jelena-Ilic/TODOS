@@ -13,7 +13,7 @@ listaTareas = [
         prioridad: 'diaria'
     },
     {
-        idTarea: 3,
+        idTarea: 2,
         titulo: 'Salir a comer',
         prioridad: 'mensual'
     }
