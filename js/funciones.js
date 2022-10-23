@@ -5,12 +5,12 @@ const selectPrioridad = document.getElementById('selectPrioridad');
 const datosListaTareas = listaTareas;
 const inputBuscar = document.getElementById('inputBuscar');
 const selectBuscar = document.getElementById('selectBuscar');
-const btnBuscar = document.getElementById('btnBuscar');
-const btnReset = document.getElementById('btnReset');
+
 
 btnGuardar.addEventListener('click', (event) => {
     event.preventDefault();
     addTarea();
+    console.log(event)
 });
 
 btnBuscar.addEventListener('click', (event) => {
@@ -33,6 +33,8 @@ function pintarTarea(tarea) {
     articleTareas.append(h2);
     articleTareas.append(button);
     button.append(icon);
+
+    eventBorrarTarea(button, tarea.idTarea);
     seccionTareas.append(articleTareas);
 }
 
@@ -54,6 +56,7 @@ function pintarTareas(arrTareas) {
         articleTareas.append(h2);
         articleTareas.append(button);
         button.append(icon);
+
         eventBorrarTarea(button, tarea.idTarea);
         seccionTareas.append(articleTareas);
     }
@@ -77,8 +80,7 @@ function eventBorrarTarea(button, idTarea) {
     button.addEventListener('click', (event) => {
         event.preventDefault();
         borrarTarea(idTarea);
-    });
-
+    })
 }
 
 function borrarTarea(idTarea) {
