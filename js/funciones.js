@@ -18,27 +18,6 @@ btnBuscar.addEventListener('click', (event) => {
 });
 
 
-function pintarTarea(tarea) {
-    const articleTareas = document.createElement('article');
-    const h2 = document.createElement('h2');
-    const icon = document.createElement('i');
-    const button = document.createElement('button');
-
-    h2.innerText = tarea.titulo;
-
-    articleTareas.setAttribute('id', tarea.idTarea);
-    articleTareas.setAttribute('class', tarea.prioridad);
-    icon.setAttribute('class', 'fas fa-eraser');
-
-    articleTareas.append(h2);
-    articleTareas.append(button);
-    button.append(icon);
-
-    eventBorrarTarea(button, tarea.idTarea);
-    seccionTareas.append(articleTareas);
-}
-
-
 function pintarTareas(arrTareas) {
 
     for (tarea of arrTareas) {
@@ -60,9 +39,36 @@ function pintarTareas(arrTareas) {
         eventBorrarTarea(button, tarea.idTarea);
         seccionTareas.append(articleTareas);
     }
+
+    saveLocalStorage(arrTareas);
 }
 
 pintarTareas(datosListaTareas);
+
+
+function pintarTarea(tarea) {
+    const articleTareas = document.createElement('article');
+    const h2 = document.createElement('h2');
+    const icon = document.createElement('i');
+    const button = document.createElement('button');
+
+    h2.innerText = tarea.titulo;
+
+    articleTareas.setAttribute('id', tarea.idTarea);
+    articleTareas.setAttribute('class', tarea.prioridad);
+    icon.setAttribute('class', 'fas fa-eraser');
+
+    articleTareas.append(h2);
+    articleTareas.append(button);
+    button.append(icon);
+
+    eventBorrarTarea(button, tarea.idTarea);
+    seccionTareas.append(articleTareas);
+
+    saveLocalStorage(datosListaTareas);
+}
+
+
 
 function addTarea() {
     const ultimoValor = datosListaTareas[datosListaTareas.length - 1];
@@ -87,6 +93,7 @@ function borrarTarea(idTarea) {
     datosListaTareas.splice(idTarea, 1);
     const deleteArticle = document.getElementById(idTarea);
     seccionTareas.removeChild(deleteArticle);
+    saveLocalStorage(datosListaTareas);
 }
 
 function filtrar() {
@@ -110,4 +117,9 @@ function filtrar() {
 
 }
 
+function saveLocalStorage(datosEntrada) {
+    const listaTareas = JSON.stringify(datosEntrada);
+    localStorage.clear();
+    localStorage.setItem('datosListaTareas', listaTareas);
+}
 
